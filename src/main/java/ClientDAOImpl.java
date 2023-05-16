@@ -31,7 +31,7 @@ public class ClientDAOImpl implements ClientDAO {
     @Override
     public Set<Client> getClientsByRole(Role role) {
 
-        return role.getClientSet();
+        return role.getClients();
     }
 
     @Override
@@ -54,6 +54,7 @@ public class ClientDAOImpl implements ClientDAO {
         clientUpd.setLogin(clientNew.getLogin());
         clientUpd.setPassword(clientNew.getPassword());
         clientUpd.setModificationDateTime(LocalDateTime.now());
+
         entityManager.merge(clientUpd);
         entityManager.getTransaction().commit();
         entityManager.close();

@@ -43,7 +43,12 @@ public class Client {
     }
 
     @ManyToMany
-    private Set<Role> roleSet = new HashSet<Role>();
+    @JoinTable(name = "client_role",
+
+            joinColumns = @JoinColumn(name = "client_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id")
+    )
+    private Set<Role> roles = new HashSet<Role>();
 
 
     @Override
@@ -55,7 +60,7 @@ public class Client {
                 ", password='" + password + '\'' +
                 ", creationDateTime=" + creationDateTime +
                 ", modificationDateTime=" + modificationDateTime +
-                ", roleSet=" + roleSet +
+                ", roleSet=" + roles +
                 '}';
     }
 }

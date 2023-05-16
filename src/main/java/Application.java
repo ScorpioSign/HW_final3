@@ -25,14 +25,14 @@ public class Application {
         roleDAO.addRole(new Role("default"));
 
 
-        client.setRoleSet(Set.of(roleDAO.getRoleById(1)));
-        client1.setRoleSet(Set.of(roleDAO.getRoleById(22), roleDAO.getRoleById(2)));
-        client2.setRoleSet(Set.of(roleDAO.getRoleById(1), roleDAO.getRoleById(3)));
-        client3.setRoleSet(Set.of(roleDAO.getRoleById(3), roleDAO.getRoleById(4)));
-        client4.setRoleSet(Set.of(roleDAO.getRoleById(5), roleDAO.getRoleById(6)));
-        client5.setRoleSet(Set.of(roleDAO.getRoleById(7)));
-        client6.setRoleSet(Set.of(roleDAO.getRoleById(6), roleDAO.getRoleById(3)));
-        client7.setRoleSet(Set.of(roleDAO.getRoleById(5), roleDAO.getRoleById(2)));
+        client.setRoles(Set.of(roleDAO.getRoleById(1)));
+        client1.setRoles(Set.of(roleDAO.getRoleById(22), roleDAO.getRoleById(2)));
+        client2.setRoles(Set.of(roleDAO.getRoleById(1), roleDAO.getRoleById(3)));
+        client3.setRoles(Set.of(roleDAO.getRoleById(3), roleDAO.getRoleById(4)));
+        client4.setRoles(Set.of(roleDAO.getRoleById(5), roleDAO.getRoleById(6)));
+        client5.setRoles(Set.of(roleDAO.getRoleById(7)));
+        client6.setRoles(Set.of(roleDAO.getRoleById(6), roleDAO.getRoleById(3)));
+        client7.setRoles(Set.of(roleDAO.getRoleById(5), roleDAO.getRoleById(2)));
 
 
         //Добавлять нового пользователя с ролями в БД;
@@ -54,17 +54,17 @@ public class Application {
 
 
         //Получать конкретного пользователя (с его ролями) из БД;
-        System.out.println(clientDAO.getClientById(13));
+        System.out.println(clientDAO.getClientById(19));
 
         //Получать список пользователей по конкретной роли;
-        System.out.println((clientDAO.getClientsByRole(roleDAO.getRoleById(6))));
+        System.out.println((clientDAO.getClientsByRole(roleDAO.getRoleById(3))));
 
 
         //Удалять пользователя в БД;
-        clientDAO.deleteClient(clientDAO.getClientById(16));
+        clientDAO.deleteClient(clientDAO.getClientById(11));
 
         //Редактировать существующего пользователя в БД.
-        clientDAO.updateClient(14, new Client("Nick", "Nick1", "552"));
+        clientDAO.updateClient(23, new Client("Nick", "Nick1", "552"));
 
 
         EntityUtil.closeEntityManagerFactory();

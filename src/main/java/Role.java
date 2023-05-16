@@ -27,12 +27,9 @@ public class Role {
         this.roleName = roleName;
     }
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "client_role",
+    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "roles")
 
-            joinColumns = @JoinColumn(name = "role_id"),
-            inverseJoinColumns = @JoinColumn(name = "id"))
-    private Set<Client> clientSet = new HashSet<Client>();
+    private Set<Client> clients = new HashSet<Client>();
 
 
     @Override
